@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const ejs = require('ejs');
+const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 app.use(cors());
@@ -16,8 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 /* ejs */
+app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname + '/views'))
+app.set('layout',  path.join(__dirname + '/views/layouts/main'))
 
 /* routes */
 app.use(require('./routes/main.routes'));

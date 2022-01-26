@@ -4,7 +4,7 @@ const path = require('path');
 
 
 router.get('/', (req, res) => {
-  res.render("index", { title: "hello world" })
+  res.render("index");
 })
 
 /* 404 */
